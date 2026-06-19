@@ -31,5 +31,58 @@ class deck():
     def _card_(self):
         return self.total_cards
 
-ob1=deck()
-print(ob1._card_())
+    def shuffle(self):
+
+        random.shuffle(self.total_cards)
+
+    def deal_one(self):
+        return self.total_cards.pop()
+
+        
+class player():
+
+    def __init__(self,name):
+        self.name=name
+        self.player_card=[]
+
+
+    def player_cards(self,deck):
+
+        for i in range(26):
+
+           self.player_card.append(deck.deal_one())
+
+    def __repr__(self):
+        return f"player {self.name} : {self.player_card}"
+           
+            
+d=deck()
+d.shuffle()
+p1=player("one")
+p1.player_cards(d)
+print(p1)
+p2=player("two")
+p2.player_cards(d)
+print(p2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
